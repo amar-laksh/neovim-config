@@ -25,6 +25,8 @@ require('legendary').setup({
     most_recent_item_at_top = true,
     -- Initial keymaps to bind
     keymaps = {
+        -- Git
+        { '<leader>gs', ':Neogit<CR>', description = "Git: open neogit" },
         -- LSP
         { 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', description = "LSP: show declaration" },
         { 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', description = "LSP: show definition" },
