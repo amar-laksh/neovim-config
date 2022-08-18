@@ -109,6 +109,8 @@ return packer.startup(function(use)
             require("neogit").setup()
         end
     }
+    use "stevearc/dressing.nvim"
+    use "mrjones2014/legendary.nvim"
 
     -------------------------------
     -- Eye candy Plugins
