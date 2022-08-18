@@ -104,6 +104,11 @@ return packer.startup(function(use)
         end
     }
     use "stevearc/aerial.nvim"
+    use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("neogit").setup()
+        end
+    }
 
     -------------------------------
     -- Eye candy Plugins
