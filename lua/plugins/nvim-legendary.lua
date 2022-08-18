@@ -44,6 +44,10 @@ require('legendary').setup({
         { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", description = "Telescope: live grep" },
         { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", description = "Telescope: list buffers" },
         { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", description = "Telescope: help tags" },
+        { "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
+            description = "Telescope: workspace symbols" },
+        { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
+            description = "Telescope: treesitter based symbols" },
     },
     -- Initial commands to bind
     commands = {
