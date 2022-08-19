@@ -50,9 +50,3 @@ map('n', '<F10>', ":put =strftime('%d-%m-%Y')<CR>")
 -- Terminal mappings
 --map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
 --map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
-
--- Telescope
---[[map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")]]
---[[map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>")]]
---[[map("n", "<leader>fb" , "<cmd>lua require('telescope.builtin').buffers()<cr>")]]
---[[map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")]]
