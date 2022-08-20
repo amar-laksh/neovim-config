@@ -154,6 +154,9 @@ require 'lspconfig'.sumneko_lua.setup {
 
 require("clangd_extensions").setup {
     server = {
+        init_options = {
+            compilationDatabaseDirectory = "build";
+        },
         on_attach = on_attach,
         capabilities = capabilities,
         -- options to pass to nvim-lspconfig

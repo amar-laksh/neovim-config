@@ -53,6 +53,11 @@ require('legendary').setup({
             description = "Telescope: hoogle" },
         { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
             description = "Telescope: treesitter based symbols" },
+
+        -- NeoTest
+        { "<leader>tr", "<cmd>lua require('neotest').run.run({adapter = 'test'})<cr>",
+            description = "NeoTest: run nearest test" },
+
     },
     -- Initial commands to bind
     commands = {

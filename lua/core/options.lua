@@ -12,14 +12,15 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-opt.mouse = 'a' -- Enable mouse support
-opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
-opt.undofile = true -- Support persistent undo
-opt.swapfile = false -- Don't use swapfile
-opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options
-opt.spell = true -- Enable spell check
-opt.spelllang = 'en_gb' -- Set spell check language as British English
+opt.mouse          = 'a' -- Enable mouse support
+opt.clipboard      = 'unnamedplus' -- Copy/paste to system clipboard
+opt.undofile       = true -- Support persistent undo
+opt.swapfile       = false -- Don't use swapfile
+opt.completeopt    = 'menuone,noinsert,noselect' -- Autocomplete options
+opt.spell          = true -- Enable spell check
+opt.spelllang      = 'en_gb' -- Set spell check language as British English
 opt.filetype.ident = true -- Enable filetype plugin
+
 
 -----------------------------------------------------------
 -- Neovim UI

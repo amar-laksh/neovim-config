@@ -111,12 +111,35 @@ return packer.startup(function(use)
     use "s1n7ax/nvim-terminal"
     use "stevearc/aerial.nvim"
 
-    use "stevearc/dressing.nvim"
+    use "mfussenegger/nvim-dap"
+    use "theHamsta/nvim-dap-virtual-text"
+    --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use "mrjones2014/legendary.nvim"
+
+    use "vim-test/vim-test"
+    use "nvim-neotest/neotest-vim-test"
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+        },
+        config = function()
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-vim-test") {}
+                }
+            })
+        end
+    }
+
+
 
     -------------------------------
     -- Eye candy Plugins
     -------------------------------
+    use "stevearc/dressing.nvim"
     use "overcache/NeoSolarized"
     use "ellisonleao/gruvbox.nvim"
     use "kyazdani42/nvim-web-devicons"
