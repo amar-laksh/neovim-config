@@ -55,7 +55,12 @@ return packer.startup(function(use)
     -------------------------------
     -- Experience Plugins
     -------------------------------
-    use "scrooloose/nerdcommenter" --Comment god
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     use "chentau/marks.nvim" -- better marks support
     use "machakann/vim-sandwich" -- perform operations between pairs of symbols
     use "terryma/vim-multiple-cursors" -- yep
