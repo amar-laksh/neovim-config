@@ -111,7 +111,12 @@ return packer.startup(function(use)
     use({
         "gbprod/yanky.nvim",
         config = function()
-            require("yanky").setup({})
+            require("yanky").setup({
+                preserve_cursor_position = {
+                    enabled = true,
+                },
+
+            })
         end
     })
 
