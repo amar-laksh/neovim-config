@@ -108,7 +108,12 @@ return packer.startup(function(use)
     }
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "luc-tielen/telescope_hoogle" }
-
+    use({
+        "gbprod/yanky.nvim",
+        config = function()
+            require("yanky").setup({})
+        end
+    })
 
     use "mizlan/iswap.nvim"
     use { "michaelb/sniprun", run = "bash ./install.sh" }

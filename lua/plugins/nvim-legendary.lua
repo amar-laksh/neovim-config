@@ -62,6 +62,13 @@ require('legendary').setup({
         { "<leader>gt", ":TransparentToggle<cr>",
             description = "Transparency: toggle" },
 
+        -- Yanky
+        { "<leader>gy", ":YankyRingHistory<cr>",
+            description = "Telescope: Yank ring history" },
+
+
+
+
 
     },
     -- Initial commands to bind
