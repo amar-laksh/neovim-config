@@ -59,7 +59,7 @@ require('legendary').setup({
             description = "NeoTest: run nearest test" },
 
         -- Transparency
-        { "<leader>gt", ":TransparentToggle<cr>",
+        { "<leader>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
             description = "Transparency: toggle" },
 
         -- Yanky
