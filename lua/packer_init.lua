@@ -127,13 +127,15 @@ return packer.startup(function(use)
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
+            "amar-laksh/neotest-cpp",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
         },
         config = function()
             require("neotest").setup({
                 adapters = {
-                    require("neotest-vim-test") {}
+                    require("neotest-cpp") {},
+                    -- require("neotest-vim-test") {},
                 }
             })
         end
@@ -144,11 +146,25 @@ return packer.startup(function(use)
     -------------------------------
     -- Eye candy Plugins
     -------------------------------
+    use "nvim-treesitter/playground"
     use "stevearc/dressing.nvim"
     use "overcache/NeoSolarized"
     use "ellisonleao/gruvbox.nvim"
     use "kyazdani42/nvim-web-devicons"
-
+    use { "xiyaowong/nvim-transparent", config = function()
+        require("transparent").setup({
+            enable = true, -- boolean: enable transparent
+            extra_groups = { -- table/string: additional groups that should be cleared
+                "BufferLineTabClose",
+                "BufferlineBufferSelected",
+                "BufferLineFill",
+                "BufferLineBackground",
+                "BufferLineSeparator",
+                "BufferLineIndicatorSelected",
+            },
+            exclude = {}, -- table: groups you don't want to clear
+        })
+    end }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

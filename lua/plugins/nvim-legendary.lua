@@ -58,6 +58,11 @@ require('legendary').setup({
         { "<leader>tr", "<cmd>lua require('neotest').run.run({adapter = 'test'})<cr>",
             description = "NeoTest: run nearest test" },
 
+        -- Transparency
+        { "<leader>gt", ":TransparentToggle<cr>",
+            description = "Transparency: toggle" },
+
+
     },
     -- Initial commands to bind
     commands = {
