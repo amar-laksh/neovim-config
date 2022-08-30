@@ -110,7 +110,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { 'bashls', 'pylsp', 'html', 'cssls', 'tsserver', 'hls', 'rust_analyzer' }
+local servers = { 'pylsp', 'html', 'cssls', 'tsserver', 'hls', 'rust_analyzer' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -125,6 +125,14 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+require 'lspconfig'.bashls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd_env = {
+        -- Ignore windows stuff
+        SHELLCHECK_OPTS = '-e SC1017 -e SC2148'
+    }
+}
 -- setting up lua lsp separately
 require 'lspconfig'.sumneko_lua.setup {
     on_attach = on_attach,
