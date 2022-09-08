@@ -44,4 +44,9 @@ require 'nvim-treesitter.configs'.setup {
         -- Set to false if you have an `updatetime` of ~100.
         clear_on_cursor_move = false,
     },
+    query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = { "BufWrite", "CursorHold" },
+    },
 }

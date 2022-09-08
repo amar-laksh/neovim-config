@@ -75,8 +75,8 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
     use "hrsh7th/nvim-cmp" -- Autocompletion plugin
     use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
-    use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
-    use "L3MON4D3/LuaSnip" -- Snippets plugin
+    use "SirVer/ultisnips" -- Snippets plugin
+    use "quangnguyen30192/cmp-nvim-ultisnips" -- Snippets source for nvim-cmp
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Language parsing and syntax highlighting
     use "nvim-treesitter/nvim-treesitter-refactor" -- Scope highlighting
     use {
@@ -131,23 +131,26 @@ return packer.startup(function(use)
     --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use "mrjones2014/legendary.nvim"
 
-    use "vim-test/vim-test"
-    use "nvim-neotest/neotest-vim-test"
     use {
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
-            "amar-laksh/neotest-cpp",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
+            -- 'amar-laksh/neotest-cpp',
         },
         config = function()
             require("neotest").setup({
                 adapters = {
-                    require("neotest-cpp") {},
-                    -- require("neotest-vim-test") {},
+                    -- require("neotest-cpp") {},
                 }
             })
+        end
+    }
+
+    use { "antonk52/bad-practices.nvim",
+        config = function()
+            require("bad_practices").setup({})
         end
     }
 
@@ -156,6 +159,10 @@ return packer.startup(function(use)
     -------------------------------
     -- Eye candy Plugins
     -------------------------------
+    use { "rcarriga/nvim-notify",
+        config = function()
+            require("notify").setup({})
+        end }
     use "nvim-treesitter/playground"
     use "stevearc/dressing.nvim"
     use "overcache/NeoSolarized"
@@ -163,7 +170,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use { "xiyaowong/nvim-transparent", config = function()
         require("transparent").setup({
-            enable = true, -- boolean: enable transparent
+            enable = false, -- boolean: enable transparent
             extra_groups = { -- table/string: additional groups that should be cleared
                 "BufferLineTabClose",
                 "BufferlineBufferSelected",

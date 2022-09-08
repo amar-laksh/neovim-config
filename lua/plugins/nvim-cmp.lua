@@ -11,8 +11,12 @@ if not cmp_status_ok then
     return
 end
 
-local luasnip_status_ok, luasnip = pcall(require, 'luasnip')
-if not luasnip_status_ok then
+local cmp_nvim_ultisnips_status_ok, ultisnip = pcall(require, 'cmp_nvim_ultisnips')
+if not cmp_nvim_ultisnips_status_ok then
+    return
+end
+
+if not cmp then
     return
 end
 
@@ -20,7 +24,7 @@ cmp.setup {
     -- Load snippet support
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
 
@@ -47,8 +51,8 @@ cmp.setup {
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            elseif ultisnip.expand_or_jumpable() then
+                ultisnip.expand_or_jump()
             else
                 fallback()
             end
@@ -56,8 +60,8 @@ cmp.setup {
         ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+            elseif ultisnip.jumpable(-1) then
+                ultisnip.jump(-1)
             else
                 fallback()
             end
@@ -67,7 +71,7 @@ cmp.setup {
     -- Load sources, see: https://github.com/topics/nvim-cmp
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = 'cmp_nvim_ultisnips' },
         { name = 'path' },
         { name = 'buffer' },
     },
