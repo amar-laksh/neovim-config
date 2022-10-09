@@ -27,9 +27,19 @@ vim.diagnostic.config({
         border = "rounded",
         source = "always",
         header = "",
-        prefix = "",
+        prefix = "*********",
     },
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+        virtual_text = false,
+        signs = true,
+        update_in_insert = false,
+        underline = true,
+    }
+)
 
 -- Show line diagnostics automatically in hover window
 vim.cmd([[
@@ -125,6 +135,20 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- require 'lspconfig'.hls.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     haskell = {
+--         plugin = {
+--             rename = {
+--                 config = {
+--                     diff = true
+--                 }
+--             }
+--         }
+--     }
+-- }
+--
 require 'lspconfig'.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
