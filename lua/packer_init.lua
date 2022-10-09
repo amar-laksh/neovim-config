@@ -148,13 +148,6 @@ return packer.startup(function(use)
         end
     }
 
-    use { "antonk52/bad-practices.nvim",
-        config = function()
-            require("bad_practices").setup({})
-        end
-    }
-
-
 
     -------------------------------
     -- Eye candy Plugins
