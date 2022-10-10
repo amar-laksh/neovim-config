@@ -37,8 +37,8 @@ require('legendary').setup({
         { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', description = "LSP: rename" },
         { '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', description = "LSP: code action" },
         { 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', description = "LSP: show references" },
-        { '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', description = "LSP: goto next diagnostic" },
-        { ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', description = "LSP: goto previous diagnostic" },
+        { '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', description = "LSP: goto next diagnostic" },
+        { ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', description = "LSP: goto previous diagnostic" },
         { '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', description = "LSP: format" },
 
         -- Telescope
@@ -66,9 +66,9 @@ require('legendary').setup({
         { "<leader>gy", ":YankyRingHistory<cr>",
             description = "Telescope: Yank ring history" },
 
-
-
-
+        -- Blamer
+        { "<leader>gb", ":BlamerToggle<cr>",
+            description = "Blamer: Toggle git blame" },
 
     },
     -- Initial commands to bind

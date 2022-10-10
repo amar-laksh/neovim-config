@@ -102,6 +102,7 @@ return packer.startup(function(use)
             require("neogit").setup()
         end
     }
+    use "APZelos/blamer.nvim"
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         requires = { { "nvim-lua/plenary.nvim" } }
