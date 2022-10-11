@@ -79,7 +79,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- Highlighting references
-    if client.server_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_exec([[
       augroup lsp_document_highlight
         autocmd! * <buffer>
