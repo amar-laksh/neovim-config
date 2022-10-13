@@ -123,7 +123,7 @@ return packer.startup(function(use)
 
     use "mizlan/iswap.nvim"
     use { "michaelb/sniprun", run = "bash ./install.sh" }
-    use "p00f/clangd_extensions.nvim"
+    -- use "p00f/clangd_extensions.nvim"
     use "s1n7ax/nvim-terminal"
     use "stevearc/aerial.nvim"
 
@@ -148,6 +148,10 @@ return packer.startup(function(use)
             })
         end
     }
+
+    use "m-pilia/vim-ccls"
+
+
 
 
     -------------------------------

@@ -184,9 +184,9 @@ require 'lspconfig'.sumneko_lua.setup {
 
 require 'lspconfig'.ccls.setup {
     init_options = {
-        compilationDatabaseDirectory = "build";
+        compilationDatabaseDirectory = "",
         index = {
-            threads = 0;
+            threads = 4;
         };
         clang = {
             excludeArgs = { "-frounding-math" };
@@ -195,10 +195,11 @@ require 'lspconfig'.ccls.setup {
             snippetSupport = true,
             hoverProvider = true,
             completionProvider = true,
-            referencesProvideb = false,
-            definationProvider = false,
-            codeActionProvider = false
+            referencesProvider = true,
+            definitionProvider = true,
+            codeActionProvider = true
         };
+
     }
 }
 -- require("clangd_extensions").setup {
