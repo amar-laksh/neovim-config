@@ -130,7 +130,8 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"
     use "theHamsta/nvim-dap-virtual-text"
     --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-    use "mrjones2014/legendary.nvim"
+    --
+    use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 
     use {
         "nvim-neotest/neotest",
@@ -138,12 +139,15 @@ return packer.startup(function(use)
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
-            -- 'amar-laksh/neotest-cpp',
+            -- Dev plugins
+            -- '~/.config/nvim-plugins/neotest-cpp',
+            'alfaix/neotest-gtest',
+            -- "amar-laksh/neotest-cpp"
         },
         config = function()
             require("neotest").setup({
                 adapters = {
-                    -- require("neotest-cpp") {},
+                    require("neotest-gtest"),
                 }
             })
         end

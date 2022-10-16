@@ -55,8 +55,14 @@ require('legendary').setup({
             description = "Telescope: treesitter based symbols" },
 
         -- NeoTest
-        { "<leader>tr", "<cmd>lua require('neotest').run.run({adapter = 'test'})<cr>",
+        -- { "<leader>tr",
+        --     "<cmd>lua require('neotest').run.run('~/.config/nvim-plugins/neotest-cpp/tests/mainTests.cpp')<cr>",
+        --     description = "NeoTest: run nearest test" },
+        --
+        { "<leader>tr",
+            "<cmd>lua require('neotest').run.run({adapter = 'neotest-cpp'})<cr>",
             description = "NeoTest: run nearest test" },
+
 
         -- Transparency
         { "<leader>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
@@ -92,6 +98,12 @@ require('legendary').setup({
             description = "Ccls: Get a tree of members for the class" },
         { "<leader>dv", ":CclsVars<cr>",
             description = "Ccls: Get a list of document variables" },
+
+        -- Plugin dev
+        { "<leader>rr",
+            ":lua package.loaded['neotest-cpp'] = nil;  require('neotest-cpp')<cr>",
+            description = "Plug dev: reload the plugin" },
+
 
     },
     -- Initial commands to bind
