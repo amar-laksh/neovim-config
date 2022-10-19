@@ -110,6 +110,13 @@ legendary.setup({
             ":lua package.loaded['neotest-cpp'] = nil;  require('neotest-cpp')<cr>",
             description = "Plug dev: reload the plugin" },
 
+        -- Terminal
+        { "tt",
+            ":ToggleTerm<cr>",
+            description = "ToggleTerm: Toggle the terminal" },
+        { "<space>tl",
+            ":ToggleTermSendCurrentLine<cr>",
+            description = "ToggleTerm: Send the current line to the terminal" },
 
     },
     -- Initial commands to bind

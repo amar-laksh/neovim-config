@@ -56,9 +56,16 @@ return packer.startup(function(use)
         end } -- Scrollbar with highlights
     use "lewis6991/nvim-treesitter-context" -- Context highlight on top of buffer
 
+    use {
+        'romgrk/barbar.nvim'
+    }
+
     -------------------------------
     -- Experience Plugins
     -------------------------------
+
+    use "akinsho/toggleterm.nvim"
+
     use {
         'numToStr/Comment.nvim',
         config = function()
