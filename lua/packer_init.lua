@@ -49,7 +49,11 @@ return packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
     use "karb94/neoscroll.nvim" -- Smooth scrolling
-    use "petertriho/nvim-scrollbar" -- Scrollbar with highlights
+    use { "petertriho/nvim-scrollbar",
+        config = function()
+            require('scrollbar').setup()
+
+        end } -- Scrollbar with highlights
     use "lewis6991/nvim-treesitter-context" -- Context highlight on top of buffer
 
     -------------------------------
@@ -72,7 +76,10 @@ return packer.startup(function(use)
     }
 
 
+    -- Completion
     use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-buffer"
     use "hrsh7th/nvim-cmp" -- Autocompletion plugin
     use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
     use "SirVer/ultisnips" -- Snippets plugin
@@ -154,6 +161,11 @@ return packer.startup(function(use)
     }
 
     use "m-pilia/vim-ccls"
+    use "rest-nvim/rest.nvim"
+    use { "krady21/compiler-explorer.nvim",
+        config = function()
+            require('compiler-explorer').setup()
+        end }
 
 
 

@@ -1,10 +1,3 @@
------------------------------------------------------------
--- Neovim LSP configuration file
------------------------------------------------------------
-
--- Plugin: nvim-lspconfig
--- url: https://github.com/neovim/nvim-lspconfig
-
 -- For configuration see the Wiki: https://github.com/neovim/nvim-lspconfig/wiki
 -- Autocompletion settings of "nvim-cmp" are defined in plugins/nvim-cmp.lua
 
@@ -148,7 +141,7 @@ end
 --     }
 -- }
 --
-require 'lspconfig'.bashls.setup {
+lspconfig.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd_env = {
@@ -157,7 +150,7 @@ require 'lspconfig'.bashls.setup {
     }
 }
 -- setting up lua lsp separately
-require 'lspconfig'.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -182,7 +175,7 @@ require 'lspconfig'.sumneko_lua.setup {
     },
 }
 
-require 'lspconfig'.ccls.setup {
+lspconfig.ccls.setup {
     init_options = {
         compilationDatabaseDirectory = "",
         index = {

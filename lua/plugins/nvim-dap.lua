@@ -1,4 +1,8 @@
-local dap = require('dap')
+local dap_status_ok, dap = pcall(require, 'dap')
+if not dap_status_ok then
+    return
+end
+
 
 dap.adapters.cppdbg = {
     id = 'cppdbg',
@@ -31,7 +35,12 @@ dap.configurations.cpp = {
     },
 }
 
-require("nvim-dap-virtual-text").setup {
+local dap_vt_status_ok, dap_virtual_text = pcall(require, 'nvim-dap-virtual-text')
+if not dap_vt_status_ok then
+    return
+end
+
+dap_virtual_text.setup {
     enabled = true, -- enable this plugin (the default)
     enabled_commands = true, -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
     highlight_changed_variables = true, -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText

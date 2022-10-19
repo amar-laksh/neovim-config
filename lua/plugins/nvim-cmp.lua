@@ -1,11 +1,3 @@
------------------------------------------------------------
--- Autocomplete configuration file
------------------------------------------------------------
-
--- Plugin: nvim-cmp
--- url: https://github.com/hrsh7th/nvim-cmp
-
-
 local cmp_status_ok, cmp = pcall(require, 'cmp')
 if not cmp_status_ok then
     return
@@ -73,6 +65,6 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'cmp_nvim_ultisnips' },
         { name = 'path' },
-        { name = 'buffer' },
+        { name = 'buffer', keyword_length = 4 },
     },
 }

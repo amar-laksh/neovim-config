@@ -1,4 +1,10 @@
-require('legendary').setup({
+local legendary_status_ok, legendary = pcall(require, 'legendary')
+if not legendary_status_ok then
+    return
+end
+
+
+legendary.setup({
     -- Include builtins by default, set to false to disable
     include_builtin = true,
     -- Include the commands that legendary.nvim creates itself
