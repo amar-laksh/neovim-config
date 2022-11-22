@@ -144,7 +144,7 @@ return packer.startup(function(use)
 
     use "mfussenegger/nvim-dap"
     use "theHamsta/nvim-dap-virtual-text"
-    -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
     use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 
