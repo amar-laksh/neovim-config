@@ -23,11 +23,20 @@ function install_python3() {
 	apt install -y python3 python3-pip && pip install neovim
 }
 
+function install_lldb() {
+    apt install -y lldb
+    ln -s /usr/bin/lldb /usr/bin/lldb-vscode
+    chmod +x /usr/bin/lldb-vscode
+}
+
 
 # install dependencies if not installed
 [ -e /usr/bin/nvim ] || install_nvim
 [ -e /usr/bin/tree-sitter ] || install_treesitter
 [ -e /usr/bin/python3 ] || install_python3
+[ -e /usr/bin/lldb ] || install_lldb
+
+
 
 rm -rf ~/.config/nvim && \
     git clone https://github.com/amar-laksh/neovim-config ~/.config/nvim && cd ~/.config/nvim && \
