@@ -153,12 +153,14 @@ legendary.setup({
     },
     -- Automatically add which-key tables to legendary
     -- see "which-key.nvim Integration" below for more details
-    auto_register_which_key = true,
+    which_key = {
+        auto_register = true,
+    },
     -- settings for the :LegendaryScratch command
     scratchpad = {
         -- configure how to show results of evaluated Lua code,
         -- either 'print' or 'float'
         -- Pressing q or <ESC> will close the float
-        display_results = 'float',
+        results_view = 'float',
     },
 })
