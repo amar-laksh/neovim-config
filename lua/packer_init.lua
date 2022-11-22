@@ -123,6 +123,7 @@ return packer.startup(function(use)
     }
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "luc-tielen/telescope_hoogle" }
+    use { "nvim-telescope/telescope-dap.nvim" }
     use({
         "gbprod/yanky.nvim",
         config = function()
@@ -143,8 +144,8 @@ return packer.startup(function(use)
 
     use "mfussenegger/nvim-dap"
     use "theHamsta/nvim-dap-virtual-text"
-    --use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-    --
+    -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
     use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 
     use {

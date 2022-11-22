@@ -6,3 +6,4 @@ end
 
 telescope.load_extension('file_browser')
 telescope.load_extension('hoogle') -- Haskell hackage docs
+telescope.load_extension('dap')
