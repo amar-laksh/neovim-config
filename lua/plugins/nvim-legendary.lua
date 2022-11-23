@@ -59,21 +59,37 @@ legendary.setup({
             description = "Telescope: hoogle" },
         { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
             description = "Telescope: treesitter based symbols" },
+
+        -- DAP
         { "<leader>ddd", "<cmd>lua require('dap').continue()<cr>",
             description = "DAP: continue" },
+
         { "<leader>ddc", "<cmd>Telescope dap commands<cr>",
             description = "DAP: commands" },
+
         { "<leader>ddb",
-            "<cmd>lua require('dap').toggle_breakpoint()<cr><cmd>lua require('dapui').update_render({})<cr>",
+            "<cmd>:PBToggleBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: toggle breakpoint" },
-        { "<leader>ddB", "<cmd>Telescope dap list_breakpoints<cr>",
-            description = "DAP: breakpoints" },
+
+        { "<leader>ddC",
+            "<cmd>:PBSetConditionalBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
+            description = "DAP: clear all breakpoints" },
+
+        { "<leader>ddB",
+            "<cmd>:PBClearAllBreakpoints<cr><cmd>lua require('dapui').update_render({})<cr>",
+            description = "DAP: clear all breakpoints" },
+
         { "<leader>ddf", "<cmd>Telescope dap frames<cr>",
             description = "DAP: frames" },
+
         { "<leader>ddv", "<cmd>Telescope dap variables<cr>",
             description = "DAP: variables" },
+
         { "<leader>ddr", "<cmd>lua require('dap').run_to_cursor()<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: run to cursor" },
+
+
+        -- DAP UI
         { "<leader>ddu", "<cmd>lua require('dapui').toggle()<cr>",
             description = "DAPUI: toggle" },
 
@@ -82,9 +98,9 @@ legendary.setup({
         --     "<cmd>lua require('neotest').run.run('~/.config/nvim-plugins/neotest-cpp/tests/mainTests.cpp')<cr>",
         --     description = "NeoTest: run nearest test" },
         --
-        { "<leader>tr",
-            "<cmd>lua require('neotest').run.run({adapter = 'neotest-cpp'})<cr>",
-            description = "NeoTest: run nearest test" },
+        -- { "<leader>tr",
+        --     "<cmd>lua require('neotest').run.run({adapter = 'neotest-cpp'})<cr>",
+        --     description = "NeoTest: run nearest test" },
 
 
         -- Transparency

@@ -145,6 +145,9 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"
     use "theHamsta/nvim-dap-virtual-text"
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use 'ofirgall/goto-breakpoints.nvim'
+    use { 'Weissle/persistent-breakpoints.nvim' }
+
 
     use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 

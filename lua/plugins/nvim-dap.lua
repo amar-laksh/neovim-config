@@ -89,3 +89,19 @@ dap_virtual_text.setup {
     virt_text_win_col = nil -- position the virtual text at a fixed window column (starting from the first text column) ,
     -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 }
+
+local goto_b_status_ok, goto_b = pcall(require, 'goto-breakpoints')
+if not goto_b_status_ok then
+    return
+end
+local map = vim.keymap.set
+map('n', ']bd', goto_b.next, {})
+map('n', '[bd', goto_b.prev, {})
+
+local pb_status_ok, pb = pcall(require, 'persistent-breakpoints')
+if not pb_status_ok then
+    return
+end
+pb.setup {
+    load_breakpoints_event = { "BufReadPost" }
+}
