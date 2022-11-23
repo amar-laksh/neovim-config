@@ -59,6 +59,8 @@ legendary.setup({
             description = "Telescope: hoogle" },
         { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
             description = "Telescope: treesitter based symbols" },
+        { "<leader>ddd", "<cmd>lua require('dap').continue()<cr>",
+            description = "DAP: continue" },
         { "<leader>ddc", "<cmd>Telescope dap commands<cr>",
             description = "DAP: commands" },
         { "<leader>ddb",
