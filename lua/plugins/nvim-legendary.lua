@@ -53,7 +53,12 @@ legendary.setup({
         { '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', description = "LSP: code action" },
         { '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', description = "LSP: goto next diagnostic" },
         { ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', description = "LSP: goto previous diagnostic" },
-        { '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', description = "LSP: format" },
+
+        -- Hopper
+        { '<space>fw', '<cmd>:HopWord<CR>', description = "Hopper: hop to a word" },
+        { '<space>fl', '<cmd>:HopVertical<CR>', description = "Hopper: hop to a vertical line" },
+        { '<space>fp', '<cmd>:HopPattern<CR>', description = "Hopper: hop according to a pattern" },
+        { '<space>fr', "<cmd>:lua require('tsht').nodes()<CR>", description = "tree hopper: select a region" },
 
         -- Telescope
         { "<leader>ff", "<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",

@@ -83,7 +83,7 @@ return packer.startup(function(use)
     }
 
 
-    use "ericcurtin/CurtineIncSw.vim" -- swtiching between source and header files
+    use "ericcurtin/CurtineIncSw.vim" -- switching between source and header files
     use "KabbAmine/zeavim.vim" -- For zeal docs
     use {
         'rmagatti/goto-preview',
@@ -102,6 +102,14 @@ return packer.startup(function(use)
     use "quangnguyen30192/cmp-nvim-ultisnips" -- Snippets source for nvim-cmp
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Language parsing and syntax highlighting
     use "nvim-treesitter/nvim-treesitter-refactor" -- Scope highlighting
+    use "nvim-treesitter/nvim-treesitter-textobjects" -- syntax aware support
+    use "mfussenegger/nvim-treehopper"
+    use {
+        "phaazon/hop.nvim",
+        config = function()
+            require('hop').setup({})
+        end
+    }
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
