@@ -45,7 +45,16 @@ dap.configurations.cpp = {
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
-        args = {},
+        args = function()
+            local file = vim.fn.getcwd() .. '/.dapTarget'
+            local lines = lines_from(file)
+            for k, v in pairs(lines) do
+                if k == 2 then
+                    return { v }
+                end
+            end
+            return { vim.fn.input('args: ') }
+        end
 
         -- 💀
         -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:

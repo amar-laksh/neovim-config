@@ -36,24 +36,35 @@ legendary.setup({
         -- LSP
         { 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', description = "LSP: show declaration" },
         { 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', description = "LSP: show definition" },
+        { '<leader>gd', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+            description = "Peek: definition" },
+
         { 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', description = "LSP: hover over symbol" },
+
         { 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', description = "LSP: show implementation" },
-        { '<leader>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', description = "LSP: signature help" },
+        { '<leader>gi', "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+            description = "Peek: implementation" },
+
+        { 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', description = "LSP: show references" },
+
+
         { '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', description = "LSP: type definition" },
         { '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', description = "LSP: rename" },
         { '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', description = "LSP: code action" },
-        { 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', description = "LSP: show references" },
         { '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', description = "LSP: goto next diagnostic" },
         { ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', description = "LSP: goto previous diagnostic" },
         { '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', description = "LSP: format" },
 
         -- Telescope
-        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", description = "Telescope: find files" },
+        { "<leader>ff", "<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
+            description = "Telescope: find files" },
         { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", description = "Telescope: live grep" },
         { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", description = "Telescope: help tags" },
         { "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
             description = "Telescope: workspace symbols" },
-        { "<leader>fb", "<cmd>Telescope file_browser<cr>",
+        { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",
+            description = "Telescope: buffers" },
+        { "<leader>fB", "<cmd>Telescope file_browser<cr>",
             description = "Telescope: file browser" },
         { "<leader>fo", "<cmd>Telescope hoogle<cr>",
             description = "Telescope: hoogle" },
@@ -138,18 +149,27 @@ legendary.setup({
         { "<leader>dv", ":CclsVars<cr>",
             description = "Ccls: Get a list of document variables" },
 
-        -- Plugin dev
-        { "<leader>rr",
-            ":lua package.loaded['neotest-cpp'] = nil;  require('neotest-cpp')<cr>",
-            description = "Plug dev: reload the plugin" },
+        { "<leader>sf", ":call CurtineIncSw()<cr>",
+            description = "Switches between header and source files" },
 
-        -- Terminal
-        { "tt",
-            ":ToggleTerm<cr>",
-            description = "ToggleTerm: Toggle the terminal" },
-        { "<space>tl",
-            ":ToggleTermSendCurrentLine<cr>",
-            description = "ToggleTerm: Send the current line to the terminal" },
+        -- Zeal docs
+        { "<leader>fz", "<cmd>:Zeavim<cr>",
+            description = "Zeavim: query docs for current symbol under cursor" },
+
+        -- -- Plugin dev
+        -- { "<leader>rr",
+        --     ":lua package.loaded['neotest-cpp'] = nil;  require('neotest-cpp')<cr>",
+        --     description = "Plug dev: reload the plugin" },
+
+
+
+        -- -- Terminal
+        -- { "tt",
+        --     ":ToggleTerm<cr>",
+        --     description = "ToggleTerm: Toggle the terminal" },
+        -- { "<space>tl",
+        --     ":ToggleTermSendCurrentLine<cr>",
+        --     description = "ToggleTerm: Send the current line to the terminal" },
 
     },
     -- Initial commands to bind

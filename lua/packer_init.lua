@@ -83,12 +83,21 @@ return packer.startup(function(use)
     }
 
 
+    use "ericcurtin/CurtineIncSw.vim" -- swtiching between source and header files
+    use "KabbAmine/zeavim.vim" -- For zeal docs
+    use {
+        'rmagatti/goto-preview',
+        config = function()
+            require('goto-preview').setup {}
+        end
+    }
     -- Completion
     use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/nvim-cmp" -- Autocompletion plugin
     use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+    use "ray-x/lsp_signature.nvim" -- LSP signature hint as you type
     use "SirVer/ultisnips" -- Snippets plugin
     use "quangnguyen30192/cmp-nvim-ultisnips" -- Snippets source for nvim-cmp
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Language parsing and syntax highlighting
