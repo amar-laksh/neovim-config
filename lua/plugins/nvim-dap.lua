@@ -28,46 +28,46 @@ dap.adapters.lldb = {
     name = 'lldb'
 }
 
+function read_lines(filename)
+    local file = vim.fn.getcwd() .. filename
+    local lines = lines_from(file)
+    for k, v in pairs(lines) do
+        if k then
+            return v
+        end
+        return ""
+    end
+end
+
+function getDapTarget(filename, index)
+    local lines = read_lines(filename)
+    if (lines ~= nil) then
+        local words = {}
+        for word in lines:gmatch("%S+") do
+            table.insert(words, word)
+        end
+        return words[index]
+    else
+        local msg = 'Path to executable: '
+        if (index > 1) then
+            msg = "Enter argument"
+        end
+        return vim.fn.input(msg, vim.fn.getcwd() .. '/', 'file')
+    end
+end
+
 dap.configurations.cpp = {
     {
+
         name = 'Launch',
         type = 'lldb',
         request = 'launch',
         program = function()
-            local file = vim.fn.getcwd() .. '/.dapTarget'
-            local lines = lines_from(file)
-            for k, v in pairs(lines) do
-                if k then
-                    return v
-                end
-            end
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            return getDapTarget('/.dapTarget', 1)
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
-        args = function()
-            local file = vim.fn.getcwd() .. '/.dapTarget'
-            local lines = lines_from(file)
-            for k, v in pairs(lines) do
-                if k == 2 then
-                    return { v }
-                end
-            end
-            return { vim.fn.input('args: ') }
-        end
-
-        -- 💀
-        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-        --
-        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-        --
-        -- Otherwise you might get the following error:
-        --
-        --    Error on launch: Failed to attach to the target process
-        --
-        -- But you should be aware of the implications:
-        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-        -- runInTerminal = false,
+        args = getDapTarget('/.dapTarget', 2)
     },
 }
 
