@@ -60,6 +60,9 @@ legendary.setup({
         { '<space>r', "<cmd>:lua require('tsht').nodes()<CR>", description = "tree hopper: select a region" },
 
         -- Telescope
+        --
+        { "<leader>fr", "<cmd>:Telescope resume<cr>",
+            description = "Telescope: resume state" },
         { "<leader>ff", "<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
             description = "Telescope: find files" },
         { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", description = "Telescope: live grep" },
