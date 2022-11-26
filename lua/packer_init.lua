@@ -54,7 +54,7 @@ return packer.startup(function(use)
             require('scrollbar').setup()
 
         end } -- Scrollbar with highlights
-    use "lewis6991/nvim-treesitter-context" -- Context highlight on top of buffer
+    -- use "lewis6991/nvim-treesitter-context" -- Context highlight on top of buffer
 
     use {
         'romgrk/barbar.nvim'
@@ -64,7 +64,6 @@ return packer.startup(function(use)
     -- Experience Plugins
     -------------------------------
 
-    use "akinsho/toggleterm.nvim"
 
     use {
         'numToStr/Comment.nvim',
@@ -108,7 +107,9 @@ return packer.startup(function(use)
     use {
         "phaazon/hop.nvim",
         config = function()
-            require('hop').setup({})
+            require('hop').setup({
+                multi_windows = true,
+            })
         end
     }
     use {
@@ -154,10 +155,10 @@ return packer.startup(function(use)
         end
     })
 
-    use "mizlan/iswap.nvim"
+    -- use "mizlan/iswap.nvim"
+    use { "ziontee113/syntax-tree-surfer" }
     use { "michaelb/sniprun", run = "bash ./install.sh" }
     -- use "p00f/clangd_extensions.nvim"
-    use "s1n7ax/nvim-terminal"
     use "stevearc/aerial.nvim"
 
     use "mfussenegger/nvim-dap"

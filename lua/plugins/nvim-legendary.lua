@@ -160,6 +160,9 @@ legendary.setup({
         { "<leader>fz", "<cmd>:Zeavim<cr>",
             description = "Zeavim: query docs for current symbol under cursor" },
 
+        { "<leader>ss", "<cmd>:ISwap<cr>",
+            description = "Swap param: swap parameters" },
+
         -- -- Plugin dev
         -- { "<leader>rr",
         --     ":lua package.loaded['neotest-cpp'] = nil;  require('neotest-cpp')<cr>",
