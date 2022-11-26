@@ -104,6 +104,7 @@ return packer.startup(function(use)
     use "nvim-treesitter/nvim-treesitter-refactor" -- Scope highlighting
     use "nvim-treesitter/nvim-treesitter-textobjects" -- syntax aware support
     use "mfussenegger/nvim-treehopper"
+
     use {
         "phaazon/hop.nvim",
         config = function()
