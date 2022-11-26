@@ -170,26 +170,6 @@ return packer.startup(function(use)
 
     use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 
-    use {
-        "nvim-neotest/neotest",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            -- Dev plugins
-            -- '~/.config/nvim-plugins/neotest-cpp',
-            'alfaix/neotest-gtest',
-            -- "amar-laksh/neotest-cpp"
-        },
-        config = function()
-            require("neotest").setup({
-                adapters = {
-                    require("neotest-gtest"),
-                }
-            })
-        end
-    }
-
     use "m-pilia/vim-ccls"
     use "rest-nvim/rest.nvim"
     use { "krady21/compiler-explorer.nvim",
