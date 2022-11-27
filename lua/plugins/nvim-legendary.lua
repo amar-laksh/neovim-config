@@ -79,36 +79,36 @@ legendary.setup({
             description = "Telescope: treesitter based symbols" },
 
         -- DAP
-        { "<leader>ddd", "<cmd>lua require('dap').continue()<cr>",
+        { "<leader>dd", "<cmd>lua require('dap').continue()<cr>",
             description = "DAP: continue" },
 
-        { "<leader>ddc", "<cmd>Telescope dap commands<cr>",
+        { "<leader>dc", "<cmd>Telescope dap commands<cr>",
             description = "DAP: commands" },
 
-        { "<leader>ddb",
+        { "<leader>db",
             "<cmd>:PBToggleBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: toggle breakpoint" },
 
-        { "<leader>ddC",
+        { "<leader>dC",
             "<cmd>:PBSetConditionalBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: clear all breakpoints" },
 
-        { "<leader>ddB",
+        { "<leader>dB",
             "<cmd>:PBClearAllBreakpoints<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: clear all breakpoints" },
 
-        { "<leader>ddf", "<cmd>Telescope dap frames<cr>",
+        { "<leader>df", "<cmd>Telescope dap frames<cr>",
             description = "DAP: frames" },
 
-        { "<leader>ddv", "<cmd>Telescope dap variables<cr>",
+        { "<leader>dv", "<cmd>Telescope dap variables<cr>",
             description = "DAP: variables" },
 
-        { "<leader>ddr", "<cmd>lua require('dap').run_to_cursor()<cr><cmd>lua require('dapui').update_render({})<cr>",
+        { "<leader>dr", "<cmd>lua require('dap').run_to_cursor()<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: run to cursor" },
 
 
         -- DAP UI
-        { "<leader>ddu", "<cmd>lua require('dapui').toggle()<cr>",
+        { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>",
             description = "DAPUI: toggle" },
 
         -- NeoTest

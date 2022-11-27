@@ -135,6 +135,7 @@ return packer.startup(function(use)
             require("neogit").setup()
         end
     }
+
     use "APZelos/blamer.nvim"
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
@@ -166,10 +167,7 @@ return packer.startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'ofirgall/goto-breakpoints.nvim'
     use { 'Weissle/persistent-breakpoints.nvim' }
-
-
-    use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
-
+    use { "mrjones2014/legendary.nvim" }
     use "m-pilia/vim-ccls"
     use "rest-nvim/rest.nvim"
     use { "krady21/compiler-explorer.nvim",
