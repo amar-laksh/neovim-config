@@ -65,6 +65,18 @@ return packer.startup(function(use)
         'romgrk/barbar.nvim'
     }
 
+    -- Window separator
+    use {
+        "nvim-zh/colorful-winsep.nvim",
+        config = function()
+            require('colorful-winsep').setup({
+                highlight = {
+                    guibg = "#16161E",
+                    guifg = "#1F3442",
+                },
+            })
+        end
+    }
     -------------------------------
     -- Experience Plugins
     -------------------------------
@@ -280,6 +292,7 @@ return packer.startup(function(use)
             exclude = {}, -- table: groups you don't want to clear
         })
     end }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
