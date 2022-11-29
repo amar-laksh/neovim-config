@@ -33,6 +33,12 @@ legendary.setup({
     keymaps = {
         -- Git
         { '<leader>gs', ':Neogit<CR>', description = "Git: open neogit" },
+
+        -- Aerial
+        { '<leader>aa', ':AerialToggle<CR>', description = "Aerial: toggle outline" },
+        { '<leader>an', ':AerialNext<CR>', description = "Aerial: go to next symbol" },
+        { '<leader>ap', ':AerialPrev<CR>', description = "Aerial: go to previous symbol" },
+
         -- LSP
         { 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', description = "LSP: show declaration" },
         { 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', description = "LSP: show definition" },

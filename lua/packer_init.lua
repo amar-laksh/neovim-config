@@ -39,23 +39,28 @@ end
 
 return packer.startup(function(use)
     -- Add you plugins here:
-    use "wbthomason/packer.nvim" -- packer can manage itself
+    use "wbthomason/packer.nvim"
 
     -------------------------------
     -- UI Plugins
     -------------------------------
+    -- Nice status line
     use {
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
-    use "karb94/neoscroll.nvim" -- Smooth scrolling
+
+    -- Smooth scrolling
+    use "karb94/neoscroll.nvim"
+
+    -- Scrollbar with highlights
     use { "petertriho/nvim-scrollbar",
         config = function()
             require('scrollbar').setup()
 
-        end } -- Scrollbar with highlights
-    -- use "lewis6991/nvim-treesitter-context" -- Context highlight on top of buffer
+        end }
 
+    -- Fancy tabs
     use {
         'romgrk/barbar.nvim'
     }
@@ -63,47 +68,90 @@ return packer.startup(function(use)
     -------------------------------
     -- Experience Plugins
     -------------------------------
-
-
+    -- Saves my neovim sessions
     use {
-        'numToStr/Comment.nvim',
+        'rmagatti/auto-session',
+        config = function()
+            require("auto-session").setup {
+                log_level = "error",
+                auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+            }
+        end
+    }
+    use({
+        "olimorris/persisted.nvim",
+        --module = "persisted", -- For lazy loading
+        config = function()
+            require("persisted").setup({
+                autosave = true
+            })
+            require("telescope").load_extension("persisted") -- To load the telescope extension
+        end,
+    })
+
+    -- Comment plugin with treesitter support
+    use {
+        "numToStr/Comment.nvim",
         config = function()
             require('Comment').setup()
         end
     }
-    use "chentau/marks.nvim" -- better marks support
-    use "machakann/vim-sandwich" -- perform operations between pairs of symbols
-    use "terryma/vim-multiple-cursors" -- yep
 
-    use "ethanholz/nvim-lastplace" -- restore last position of the cursor
+    -- code outline window for quick navigation
+    use {
+        "stevearc/aerial.nvim",
+        config = function() require('aerial').setup() end
+    }
+
+    -- perform operations between pairs of symbols
+    use "machakann/vim-sandwich"
+
+    -- yep
+    use "terryma/vim-multiple-cursors"
+
+    -- restore last position of the cursor
+    use "ethanholz/nvim-lastplace"
+
+    -- handles pair objects automatically (all the brackets!)
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
 
+    -- switching between source and header files
+    use "ericcurtin/CurtineIncSw.vim"
 
-    use "ericcurtin/CurtineIncSw.vim" -- switching between source and header files
-    use "KabbAmine/zeavim.vim" -- For zeal docs
-    use {
-        'rmagatti/goto-preview',
-        config = function()
-            require('goto-preview').setup {}
-        end
-    }
-    -- Completion
-    use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
+    -- For zeal docs
+    use "KabbAmine/zeavim.vim"
+
+    -- Configurations for Nvim LSP
+    use "neovim/nvim-lspconfig"
+
+    -- Autocompletion plugins
+    use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-buffer"
-    use "hrsh7th/nvim-cmp" -- Autocompletion plugin
-    use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
-    use "ray-x/lsp_signature.nvim" -- LSP signature hint as you type
-    use "SirVer/ultisnips" -- Snippets plugin
-    use "quangnguyen30192/cmp-nvim-ultisnips" -- Snippets source for nvim-cmp
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- Language parsing and syntax highlighting
-    use "nvim-treesitter/nvim-treesitter-refactor" -- Scope highlighting
-    use "nvim-treesitter/nvim-treesitter-textobjects" -- syntax aware support
-    use "mfussenegger/nvim-treehopper"
+    use "hrsh7th/cmp-nvim-lsp"
 
+    -- LSP signature hint as you type
+    use "ray-x/lsp_signature.nvim"
+
+    -- Snippets plugin
+    use "SirVer/ultisnips"
+
+    -- Snippets source for nvim-cmp
+    use "quangnguyen30192/cmp-nvim-ultisnips"
+
+    -- Language parsing and syntax highlighting
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+
+    -- Scope highlighting
+    use "nvim-treesitter/nvim-treesitter-refactor"
+
+    -- syntax aware support
+    use "nvim-treesitter/nvim-treesitter-textobjects"
+
+    -- Jump anywhere using a few keystrokes!
     use {
         "phaazon/hop.nvim",
         config = function()
@@ -112,6 +160,11 @@ return packer.startup(function(use)
             })
         end
     }
+
+    -- Region highlight using treesitter and hop
+    use "mfussenegger/nvim-treehopper"
+
+    -- Pretty list for diagnostics etc.
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -120,23 +173,32 @@ return packer.startup(function(use)
             }
         end
     }
+
+    -- Nice Markdown preview with async updates
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
+
+    -- spellcheck using treesitter
     use {
         "lewis6991/spellsitter.nvim",
         config = function()
             require("spellsitter").setup()
         end
     }
+
+    -- git support inside neovim
     use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim",
         config = function()
             require("neogit").setup()
         end
     }
 
+    -- git blame support
     use "APZelos/blamer.nvim"
+
+    -- Command prompt to search and select everything
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         requires = { { "nvim-lua/plenary.nvim" } }
@@ -144,6 +206,9 @@ return packer.startup(function(use)
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "luc-tielen/telescope_hoogle" }
     use { "nvim-telescope/telescope-dap.nvim" }
+
+
+    -- Provides yank ring history
     use({
         "gbprod/yanky.nvim",
         config = function()
@@ -151,45 +216,56 @@ return packer.startup(function(use)
                 preserve_cursor_position = {
                     enabled = true,
                 },
-
             })
         end
     })
 
-    -- use "mizlan/iswap.nvim"
+    -- Uses treesitter to move and edit blocks of code
     use { "ziontee113/syntax-tree-surfer" }
-    use { "michaelb/sniprun", run = "bash ./install.sh" }
-    -- use "p00f/clangd_extensions.nvim"
-    use "stevearc/aerial.nvim"
 
+    -- Can run small snippets independently
+    use { "michaelb/sniprun", run = "bash ./install.sh" }
+
+    -- Debugging support
     use "mfussenegger/nvim-dap"
     use "theHamsta/nvim-dap-virtual-text"
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use 'ofirgall/goto-breakpoints.nvim'
-    use { 'Weissle/persistent-breakpoints.nvim' }
-    use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
+    use "ofirgall/goto-breakpoints.nvim"
+    use { "Weissle/persistent-breakpoints.nvim" }
+
+    -- Provides support for C/C++
     use "m-pilia/vim-ccls"
+
+    -- provides helpful keybinding legend
+    use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
+
+    -- A http client
     use "rest-nvim/rest.nvim"
-    use { "krady21/compiler-explorer.nvim",
-        config = function()
-            require('compiler-explorer').setup()
-        end }
-
-
 
 
     -------------------------------
     -- Eye candy Plugins
     -------------------------------
+    -- Fancy notification bubbles
     use { "rcarriga/nvim-notify",
         config = function()
             require("notify").setup({})
         end }
+
+    -- Treesitter playground to write AST queries
     use "nvim-treesitter/playground"
+
+    -- Improves default UI interfaces
     use "stevearc/dressing.nvim"
+
+    -- Themes
     use "overcache/NeoSolarized"
     use "ellisonleao/gruvbox.nvim"
+
+    -- Icons
     use "kyazdani42/nvim-web-devicons"
+
+    -- Toggles transparency
     use { "xiyaowong/nvim-transparent", config = function()
         require("transparent").setup({
             enable = false, -- boolean: enable transparent
