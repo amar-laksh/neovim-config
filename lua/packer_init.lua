@@ -87,19 +87,11 @@ return packer.startup(function(use)
             require("auto-session").setup {
                 log_level = "error",
                 auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+                auto_session_use_git_branch = true
             }
         end
     }
-    use({
-        "olimorris/persisted.nvim",
-        --module = "persisted", -- For lazy loading
-        config = function()
-            require("persisted").setup({
-                autosave = true
-            })
-            require("telescope").load_extension("persisted") -- To load the telescope extension
-        end,
-    })
+
 
     -- Comment plugin with treesitter support
     use {
