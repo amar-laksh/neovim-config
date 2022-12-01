@@ -32,7 +32,7 @@ legendary.setup({
     -- Initial keymaps to bind
     keymaps = {
         -- Git
-        { '<leader>gs', ':Neogit<CR>', description = "Git: open neogit" },
+        { '<leader>gs', ':Neogit kind=vsplit<CR>', description = "Git: open neogit" },
 
         -- Aerial
         { '<leader>aa', ':AerialToggle<CR>', description = "Aerial: toggle outline" },

@@ -127,20 +127,20 @@ for _, lsp in ipairs(servers) do
     }
 end
 
--- require 'lspconfig'.hls.setup {
---     on_attach = on_attach,
---     capabilities = capabilities,
---     haskell = {
---         plugin = {
---             rename = {
---                 config = {
---                     diff = true
---                 }
---             }
---         }
---     }
--- }
---
+lspconfig.hls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    haskell = {
+        plugin = {
+            rename = {
+                config = {
+                    diff = true
+                }
+            }
+        }
+    }
+}
+
 lspconfig.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -180,13 +180,12 @@ lspconfig.ccls.setup {
     init_options = {
         compilationDatabaseDirectory = "",
         index = {
-            threads = 4;
-        };
+        },
         clang = {
             excludeArgs = { "-frounding-math" },
             extraArgs = { "-Wall", "-Wextra", "-Wfloat-equal" }
 
-        };
+        },
         client = {
             snippetSupport = true,
             hoverProvider = true,
@@ -194,7 +193,7 @@ lspconfig.ccls.setup {
             referencesProvider = true,
             definitionProvider = true,
             codeActionProvider = true
-        };
+        }
 
     }
 }
