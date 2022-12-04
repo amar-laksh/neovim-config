@@ -243,6 +243,12 @@ return packer.startup(function(use)
     -------------------------------
     -- Eye candy Plugins
     -------------------------------
+    -- Lsp progress
+    use { 'j-hui/fidget.nvim',
+        config = function()
+            require("fidget").setup({})
+        end
+    }
     -- Fancy notification bubbles
     use { "rcarriga/nvim-notify",
         config = function()
