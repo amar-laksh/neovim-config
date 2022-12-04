@@ -49,11 +49,13 @@ map('n', '<F10>', ":put =strftime('%d-%m-%Y')<CR>")
 -----------------------------------------------------------
 map('n', '<C-u>', '<C-u>zz')
 map('n', '<C-d>', '<C-d>zz')
+map('n', '<space>q', ':%s/')
+
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
 -----------------------------------------------------------
 -- Terminal mappings
 --map('n', '<C-t>', ':Term<CR>', { noremap = true })  -- open
---map('t', '<Esc>', '<C-\\><C-n>')                    -- exit
+map('t', '<Esc>', '<C-\\><C-n>') -- exit
 --

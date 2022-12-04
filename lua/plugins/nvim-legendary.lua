@@ -179,13 +179,11 @@ legendary.setup({
 
 
 
-        -- -- Terminal
-        -- { "tt",
-        --     ":ToggleTerm<cr>",
-        --     description = "ToggleTerm: Toggle the terminal" },
-        -- { "<space>tl",
-        --     ":ToggleTermSendCurrentLine<cr>",
-        --     description = "ToggleTerm: Send the current line to the terminal" },
+        -- Terminal
+        { "<space>t",
+            "<cmd>lua require('FTerm').toggle()<cr>",
+            description = "FTerm: Toggle the terminal" },
+
 
     },
     -- Initial commands to bind

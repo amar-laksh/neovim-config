@@ -65,18 +65,6 @@ return packer.startup(function(use)
         'romgrk/barbar.nvim'
     }
 
-    -- Window separator
-    use {
-        "nvim-zh/colorful-winsep.nvim",
-        config = function()
-            require('colorful-winsep').setup({
-                highlight = {
-                    guibg = "#16161E",
-                    guifg = "#1F3442",
-                },
-            })
-        end
-    }
     -------------------------------
     -- Experience Plugins
     -------------------------------
@@ -90,6 +78,11 @@ return packer.startup(function(use)
                 auto_session_use_git_branch = true
             }
         end
+    }
+
+    -- Floating terminal
+    use {
+        'numToStr/FTerm.nvim'
     }
 
 
