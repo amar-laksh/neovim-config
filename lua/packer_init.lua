@@ -177,14 +177,6 @@ return packer.startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
-    -- spellcheck using treesitter
-    use {
-        "lewis6991/spellsitter.nvim",
-        config = function()
-            require("spellsitter").setup()
-        end
-    }
-
     -- git support inside neovim
     use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim",
         config = function()
