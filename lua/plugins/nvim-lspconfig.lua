@@ -178,13 +178,9 @@ lspconfig.sumneko_lua.setup {
 lspconfig.ccls.setup {
     on_attach = on_attach,
     init_options = {
-        compilationDatabaseDirectory = "",
-        index = {
-        },
         clang = {
             excludeArgs = { "-frounding-math" },
             extraArgs = { "-Wall", "-Wextra", "-Wfloat-equal" }
-
         },
         client = {
             snippetSupport = true,

@@ -80,7 +80,7 @@ dap_ui.setup({
     },
     windows = { indent = 1 },
     render = {
-        max_type_length = nil, -- Can be integer or nil.
+        max_type_length = 1, -- Can be integer or nil.
         max_value_lines = nil, -- Can be integer or nil.
     }
 })
