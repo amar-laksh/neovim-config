@@ -1,4 +1,13 @@
--- vim.g["test#cpp#catch2#file_pattern"] = ".tests.*"
--- vim.g["test#cpp#catch2#test_target"] = "SelfTest"
--- --vim.g["test#cpp#catch2#relToProject_build_dir"] = "./build/testing/"
--- vim.g["test#cpp#catch2#bin_dir"] = "test/dir"
+local neotest_status_ok, neotest = pcall(require, 'neotest')
+if not neotest_status_ok then
+    return
+end
+neotest.setup({
+    adapters = {
+        require("neotest-cpp") {
+            args = { testFilesSuffix = "Tests",
+                runner = "/usr/sbin/ctest",
+                buildPrefix = "build" }
+        },
+    }
+})

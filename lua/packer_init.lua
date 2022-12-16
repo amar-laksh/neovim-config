@@ -231,6 +231,15 @@ return packer.startup(function(use)
     -- A http client
     use "rest-nvim/rest.nvim"
 
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "/home/amar/github/codebases/neotest-cpp"
+        }
+    }
 
     -------------------------------
     -- Eye candy Plugins

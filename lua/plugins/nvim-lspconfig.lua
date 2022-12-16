@@ -136,7 +136,12 @@ lspconfig.hls.setup {
                 config = {
                     diff = true
                 }
-            }
+            },
+            hlint = {
+                globalOn = true
+            },
+
+
         }
     }
 }

@@ -118,13 +118,14 @@ legendary.setup({
             description = "DAPUI: toggle" },
 
         -- NeoTest
-        -- { "<leader>tr",
-        --     "<cmd>lua require('neotest').run.run('~/.config/nvim-plugins/neotest-cpp/tests/mainTests.cpp')<cr>",
-        --     description = "NeoTest: run nearest test" },
-        --
-        -- { "<leader>tr",
-        --     "<cmd>lua require('neotest').run.run({adapter = 'neotest-cpp'})<cr>",
-        --     description = "NeoTest: run nearest test" },
+        { "<leader>tf",
+            "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
+            description = "NeoTest: run the current file" },
+
+        { "<leader>tr",
+            "<cmd>lua require('neotest').run.run()<cr>",
+            description = "NeoTest: run nearest test" },
+
 
 
         -- Transparency
