@@ -118,13 +118,26 @@ legendary.setup({
             description = "DAPUI: toggle" },
 
         -- NeoTest
-        { "<leader>tf",
+        { "<space>tf",
             "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
             description = "NeoTest: run the current file" },
 
-        { "<leader>tr",
+        { "<space>tr",
             "<cmd>lua require('neotest').run.run()<cr>",
             description = "NeoTest: run nearest test" },
+
+
+        { "<space>ts",
+            "<cmd>lua require('neotest').summary.toggle()<cr>",
+            description = "NeoTest: toggle tests summary" },
+
+        { "<space>tn",
+            "<cmd>lua require('neotest').jump.next({})<cr>",
+            description = "NeoTest: goto next test" },
+
+        { "<space>tp",
+            "<cmd>lua require('neotest').jump.prev({})<cr>",
+            description = "NeoTest: goto previous test" },
 
 
 

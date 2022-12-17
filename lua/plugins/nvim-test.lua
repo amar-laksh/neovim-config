@@ -5,9 +5,8 @@ end
 neotest.setup({
     adapters = {
         require("neotest-cpp") {
-            args = { testFilesSuffix = "Tests",
-                runner = "/usr/sbin/ctest",
-                buildPrefix = "build" }
+            args = { testFilesSuffix = "Test",
+                buildPrefix = "_builds/build-debug" }
         },
     }
 })
