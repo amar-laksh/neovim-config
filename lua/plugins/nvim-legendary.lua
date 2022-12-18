@@ -194,9 +194,9 @@ legendary.setup({
 
 
         -- Terminal
-        { "<space>t",
-            "<cmd>lua require('FTerm').toggle()<cr>",
-            description = "FTerm: Toggle the terminal" },
+        -- { "<space>t",
+        --     "<cmd>lua require('FTerm').toggle()<cr>",
+        --     description = "FTerm: Toggle the terminal" },
 
 
     },
