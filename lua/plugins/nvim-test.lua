@@ -32,11 +32,13 @@ neotest.setup({
     adapters = {
         require("neotest-cpp") {
             args = {
+                -- TODO: do all project settings through a projectFile option
+                projectFile = ".projectConfig",
                 testSuffixes = { "Test", "test", "Tests", "tests" },
-                buildPrefix = "_builds/build-debug",
-                buildFn = function(target, root)
+                buildPrefixes = { "/_builds/build-debug/", "/build/" },
+                buildCommandFn = function(target, root)
                     -- Using a custom build script for our test target
-                    local lines = read_lines("/.dapTarget")
+                    local lines = read_lines("/.projectConfig")
                     return string.format(lines, target)
                 end
             }
