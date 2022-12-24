@@ -83,6 +83,14 @@ legendary.setup({
             description = "Telescope: hoogle" },
         { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
             description = "Telescope: treesitter based symbols" },
+        { "<leader>fe", "<cmd>Telescope emoji<cr>",
+            description = "Telescope: emojis" },
+        -- Yanky
+        { "<leader>fy", ":YankyRingHistory<cr>",
+            description = "Telescope: Yank ring history" },
+
+
+
 
         -- DAP
         { "<leader>dd", "<cmd>lua require('dap').continue()<cr>",
@@ -126,6 +134,9 @@ legendary.setup({
             "<cmd>lua require('neotest').run.run()<cr>",
             description = "NeoTest: run nearest test" },
 
+        { "<space>to",
+            "<cmd>lua require('neotest').output_panel.toggle()<cr>",
+            description = "NeoTest: toggle tests output" },
 
         { "<space>ts",
             "<cmd>lua require('neotest').summary.toggle()<cr>",
@@ -144,10 +155,6 @@ legendary.setup({
         -- Transparency
         { "<leader>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
             description = "Transparency: toggle" },
-
-        -- Yanky
-        { "<leader>gy", ":YankyRingHistory<cr>",
-            description = "Telescope: Yank ring history" },
 
         -- Blamer
         { "<leader>gb", ":BlamerToggle<cr>",

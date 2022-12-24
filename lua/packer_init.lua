@@ -124,6 +124,15 @@ return packer.startup(function(use)
     -- Configurations for Nvim LSP
     use "neovim/nvim-lspconfig"
 
+    use {
+        'MrcJkb/haskell-tools.nvim',
+        requires = {
+            'neovim/nvim-lspconfig',
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim', -- optional
+        },
+
+    }
     -- Autocompletion plugins
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"
@@ -195,6 +204,8 @@ return packer.startup(function(use)
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "luc-tielen/telescope_hoogle" }
     use { "nvim-telescope/telescope-dap.nvim" }
+    use { "xiyaowong/telescope-emoji.nvim" }
+
 
 
     -- Provides yank ring history

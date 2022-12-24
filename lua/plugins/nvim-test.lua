@@ -2,6 +2,7 @@ local neotest_status_ok, neotest = pcall(require, 'neotest')
 if not neotest_status_ok then
     return
 end
+
 local function lines_from(file)
     local function file_exists(filename)
         local f = io.open(filename, "rb")
@@ -49,6 +50,10 @@ neotest.setup({
         running = "〇",
         failed = "✗",
     },
+    diagnostic = {
+        enabled = true
+    },
+    log_level = 1,
     summary = {
         animated = true,
         enabled = true,
@@ -78,8 +83,8 @@ neotest.setup({
 
 })
 vim.api.nvim_set_hl(0, "NeotestPassed", { bold = true, blend = 0, fg = "green" })
-vim.api.nvim_set_hl(0, "NeotestFailed", { bold = true, blend = 0, bg = "red" })
-vim.api.nvim_set_hl(0, "NeotestRunning", { bold = true, blend = 0, bg = "orange" })
+vim.api.nvim_set_hl(0, "NeotestFailed", { bold = true, blend = 0, fg = "red" })
+vim.api.nvim_set_hl(0, "NeotestRunning", { bold = true, blend = 0, fg = "orange" })
 vim.api.nvim_set_hl(0, "NeotestDir", { bold = true, fg = "#af3a03" })
 vim.api.nvim_set_hl(0, "NeotestFile", { bold = true, fg = "#79740e" })
 vim.api.nvim_set_hl(0, "NeotestTest", { bold = true, fg = "#ca9d4f" })

@@ -25,14 +25,14 @@ tabs.setup({
     diagnostics = {
         -- you can use a list
         { enabled = true, icon = 'ﬀ' }, -- ERROR
-        { enabled = false }, -- WARN
-        { enabled = false }, -- INFO
+        { enabled = true }, -- WARN
+        { enabled = true }, -- INFO
         { enabled = true }, -- HINT
 
         -- OR `vim.diagnostic.severity`
         [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
-        [vim.diagnostic.severity.WARN] = { enabled = false },
-        [vim.diagnostic.severity.INFO] = { enabled = false },
+        [vim.diagnostic.severity.WARN] = { enabled = true },
+        [vim.diagnostic.severity.INFO] = { enabled = true },
         [vim.diagnostic.severity.HINT] = { enabled = true },
     },
 
