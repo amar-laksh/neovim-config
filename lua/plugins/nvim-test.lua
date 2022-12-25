@@ -31,7 +31,7 @@ end
 
 neotest.setup({
     adapters = {
-        require("neotest-cpp") {
+        require("neotest-catch2") {
             args = {
                 -- TODO: do all project settings through a projectFile option
                 projectFile = ".projectConfig",

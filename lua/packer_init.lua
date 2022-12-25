@@ -241,14 +241,14 @@ return packer.startup(function(use)
 
     -- A http client
     use "rest-nvim/rest.nvim"
+    use { "amar-laksh/neotest-catch2" }
 
     use {
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            "/home/amar/github/codebases/neotest-cpp"
+            "antoinemadec/FixCursorHold.nvim"
         }
     }
 
