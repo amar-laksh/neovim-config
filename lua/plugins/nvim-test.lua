@@ -37,11 +37,11 @@ neotest.setup({
                 projectFile = ".projectConfig",
                 testSuffixes = { "Test", "test", "Tests", "tests" },
                 buildPrefixes = { "/_builds/build-debug/", "/build/" },
-                buildCommandFn = function(target, root)
-                    -- Using a custom build script for our test target
-                    local lines = read_lines("/.projectConfig")
-                    return string.format(lines, target)
-                end
+                -- buildCommandFn = function(target, root)
+                --     -- Using a custom build script for our test target
+                --     local lines = read_lines("/.projectConfig")
+                --     return string.format(lines, target)
+                -- end
             }
         },
     },

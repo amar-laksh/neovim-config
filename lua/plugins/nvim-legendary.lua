@@ -130,6 +130,10 @@ legendary.setup({
             "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
             description = "NeoTest: run the current file" },
 
+        { "<space>td",
+            "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
+            description = "NeoTest: run nearest test" },
+
         { "<space>tr",
             "<cmd>lua require('neotest').run.run()<cr>",
             description = "NeoTest: run nearest test" },
