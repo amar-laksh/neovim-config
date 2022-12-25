@@ -132,7 +132,7 @@ legendary.setup({
 
         { "<space>td",
             "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
-            description = "NeoTest: run nearest test" },
+            description = "NeoTest: debug nearest test" },
 
         { "<space>tr",
             "<cmd>lua require('neotest').run.run()<cr>",
