@@ -73,7 +73,7 @@ orgmode.setup {
                 'runningDistance: %^{running(kms)}\n' ..
                 ':sleep: %^{sleep(hours)}\n' ..
                 ':mood: %^{mood(1-10 scale)}\n:END:%?\n',
-            target = '~/Documents/org/Journal.org',
+            target = '~/Documents/org/journal/Journal.org',
         }
     }
 }
