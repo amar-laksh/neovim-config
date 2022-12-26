@@ -43,22 +43,22 @@ orgmode.setup {
     org_capture_templates = {
         t = {
             description = 'Todo task',
-            template = '* TODO %?\n %u',
+            template = '* TODO %?\n  %u',
             target = '~/Documents/org/Todos.org'
         },
         r = {
             description = 'Reminder',
-            template = '* Reminder: %?\n DEADLINE: %T',
+            template = '* Reminder: %?\n  DEADLINE: %T',
             target = '~/Documents/org/Reminders.org'
         },
         b = {
             description = 'Birthdays',
-            template = '* %?\n <%<%Y-%m-%d %a +1y>>\n',
+            template = '* %?\n  <%<%Y-%m-%d %a +1y>>',
             target = '~/Documents/org/Birthdays.org'
         },
         e = {
             description = 'Events',
-            template = '** %?\n %T',
+            template = '* %?\n  %T',
             target = '~/Documents/org/Calendar.org',
             headline = 'one-time'
         },
