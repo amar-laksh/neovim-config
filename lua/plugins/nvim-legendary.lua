@@ -32,23 +32,23 @@ legendary.setup({
     -- Initial keymaps to bind
     keymaps = {
         -- Git
-        { '<leader>gs', ':Neogit kind=vsplit<CR>', description = "Git: open neogit" },
+        { '<space>gs', ':Neogit kind=vsplit<CR>', description = "Git: open neogit" },
 
         -- Aerial
-        { '<leader>aa', ':AerialToggle<CR>', description = "Aerial: toggle outline" },
-        { '<leader>an', ':AerialNext<CR>', description = "Aerial: go to next symbol" },
-        { '<leader>ap', ':AerialPrev<CR>', description = "Aerial: go to previous symbol" },
+        { '<space>aa', ':AerialToggle<CR>', description = "Aerial: toggle outline" },
+        { '<space>an', ':AerialNext<CR>', description = "Aerial: go to next symbol" },
+        { '<space>ap', ':AerialPrev<CR>', description = "Aerial: go to previous symbol" },
 
         -- LSP
         { 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', description = "LSP: show declaration" },
         { 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', description = "LSP: show definition" },
-        { '<leader>gd', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+        { '<space>gd', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
             description = "Peek: definition" },
 
         { 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', description = "LSP: hover over symbol" },
 
         { 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', description = "LSP: show implementation" },
-        { '<leader>gi', "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
+        { '<space>gi', "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
             description = "Peek: implementation" },
 
         { 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', description = "LSP: show references" },
@@ -67,62 +67,68 @@ legendary.setup({
 
         -- Telescope
         --
-        { "<leader>fr", "<cmd>:Telescope resume<cr>",
+        { "<space>fr", "<cmd>:Telescope resume<cr>",
             description = "Telescope: resume state" },
-        { "<leader>ff", "<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
+        { "<space>ff", "<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
             description = "Telescope: find files" },
-        { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", description = "Telescope: live grep" },
-        { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", description = "Telescope: help tags" },
-        { "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
+        { "<space>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", description = "Telescope: live grep" },
+        { "<space>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", description = "Telescope: help tags" },
+        { "<space>fs", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>",
             description = "Telescope: workspace symbols" },
-        { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",
+        { "<space>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",
             description = "Telescope: buffers" },
-        { "<leader>fB", "<cmd>Telescope file_browser<cr>",
+        { "<space>fB", "<cmd>Telescope file_browser<cr>",
             description = "Telescope: file browser" },
-        { "<leader>fo", "<cmd>Telescope hoogle<cr>",
+        { "<space>fo", "<cmd>Telescope hoogle<cr>",
             description = "Telescope: hoogle" },
-        { "<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
+        { "<space>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>",
             description = "Telescope: treesitter based symbols" },
-        { "<leader>fe", "<cmd>Telescope emoji<cr>",
+        { "<space>fe", "<cmd>Telescope emoji<cr>",
             description = "Telescope: emojis" },
         -- Yanky
-        { "<leader>fy", ":YankyRingHistory<cr>",
+        { "<space>fy", ":YankyRingHistory<cr>",
             description = "Telescope: Yank ring history" },
+        -- Org mode
+        { "<space>oh", "<cmd>Telescope orgmode search_headings<cr>",
+            description = "Swap param: swap parameters" },
+        { "<space>oH", "<cmd>Telescope orgmode refile_heading<cr>",
+            description = "Swap param: swap parameters" },
+
 
 
 
 
         -- DAP
-        { "<leader>dd", "<cmd>lua require('dap').continue()<cr>",
+        { "<space>dd", "<cmd>lua require('dap').continue()<cr>",
             description = "DAP: continue" },
 
-        { "<leader>dc", "<cmd>Telescope dap commands<cr>",
+        { "<space>dc", "<cmd>Telescope dap commands<cr>",
             description = "DAP: commands" },
 
-        { "<leader>db",
+        { "<space>db",
             "<cmd>:PBToggleBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: toggle breakpoint" },
 
-        { "<leader>dC",
+        { "<space>dC",
             "<cmd>:PBSetConditionalBreakpoint<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: clear all breakpoints" },
 
-        { "<leader>dB",
+        { "<space>dB",
             "<cmd>:PBClearAllBreakpoints<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: clear all breakpoints" },
 
-        { "<leader>df", "<cmd>Telescope dap frames<cr>",
+        { "<space>df", "<cmd>Telescope dap frames<cr>",
             description = "DAP: frames" },
 
-        { "<leader>dv", "<cmd>Telescope dap variables<cr>",
+        { "<space>dv", "<cmd>Telescope dap variables<cr>",
             description = "DAP: variables" },
 
-        { "<leader>dr", "<cmd>lua require('dap').run_to_cursor()<cr><cmd>lua require('dapui').update_render({})<cr>",
+        { "<space>dr", "<cmd>lua require('dap').run_to_cursor()<cr><cmd>lua require('dapui').update_render({})<cr>",
             description = "DAP: run to cursor" },
 
 
         -- DAP UI
-        { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>",
+        { "<space>du", "<cmd>lua require('dapui').toggle()<cr>",
             description = "DAPUI: toggle" },
 
         -- NeoTest
@@ -157,45 +163,47 @@ legendary.setup({
 
 
         -- Transparency
-        { "<leader>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
+        { "<space>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
             description = "Transparency: toggle" },
 
         -- Blamer
-        { "<leader>gb", ":BlamerToggle<cr>",
+        { "<space>gb", ":BlamerToggle<cr>",
             description = "Blamer: Toggle git blame" },
         -- Ccls
-        { "<leader>ccb", ":CclsBase<cr>",
+        { "<space>ccb", ":CclsBase<cr>",
             description = "Ccls: Get list of a base classes" },
-        { "<leader>chb", ":CclsBaseHierarchy<cr>",
+        { "<space>chb", ":CclsBaseHierarchy<cr>",
             description = "Ccls: Get a tree of inheritance ancestors" },
-        { "<leader>ccd", ":CclsDerived<cr>",
+        { "<space>ccd", ":CclsDerived<cr>",
             description = "Ccls: Get list of a derived classes" },
-        { "<leader>chd", ":CclsDerivedHierarchy<cr>",
+        { "<space>chd", ":CclsDerivedHierarchy<cr>",
             description = "Ccls: Get a tree of inheritance descendants" },
-        { "<leader>ccc", ":CclsCallers<cr>",
+        { "<space>ccc", ":CclsCallers<cr>",
             description = "Ccls: Get list of functions calling the function" },
-        { "<leader>chc", ":CclsCallHierarchy<cr>",
+        { "<space>chc", ":CclsCallHierarchy<cr>",
             description = "Ccls: Get a hierarchy of functions calling the function" },
-        { "<leader>ccC", ":CclsCallees<cr>",
+        { "<space>ccC", ":CclsCallees<cr>",
             description = "Ccls: Get list of functions called in the function" },
-        { "<leader>chC", ":CclsCalleeHierarchy<cr>",
+        { "<space>chC", ":CclsCalleeHierarchy<cr>",
             description = "Ccls: Get a hierarchy of functions called by the function" },
-        { "<leader>cm", ":CclsMembers<cr>",
+        { "<space>cm", ":CclsMembers<cr>",
             description = "Ccls: Get a list of members for the class" },
-        { "<leader>chm", ":CclsMemberHierarchy<cr>",
+        { "<space>chm", ":CclsMemberHierarchy<cr>",
             description = "Ccls: Get a tree of members for the class" },
-        { "<leader>dv", ":CclsVars<cr>",
+        { "<space>dv", ":CclsVars<cr>",
             description = "Ccls: Get a list of document variables" },
 
-        { "<leader>sf", ":call CurtineIncSw()<cr>",
+        { "<space>sf", ":call CurtineIncSw()<cr>",
             description = "Switches between header and source files" },
 
         -- Zeal docs
-        { "<leader>fz", "<cmd>:Zeavim<cr>",
+        { "<space>fz", "<cmd>:Zeavim<cr>",
             description = "Zeavim: query docs for current symbol under cursor" },
 
-        { "<leader>ss", "<cmd>:ISwap<cr>",
+        { "<space>ss", "<cmd>:ISwap<cr>",
             description = "Swap param: swap parameters" },
+
+
 
         -- -- Plugin dev
         -- { "<leader>rr",

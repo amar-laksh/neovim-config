@@ -146,7 +146,7 @@ return packer.startup(function(use)
     use "SirVer/ultisnips"
 
     -- Snippets source for nvim-cmp
-    use "quangnguyen30192/cmp-nvim-ultisnips"
+    use { "quangnguyen30192/cmp-nvim-ultisnips" }
 
     -- Language parsing and syntax highlighting
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -205,6 +205,7 @@ return packer.startup(function(use)
     use { "luc-tielen/telescope_hoogle" }
     use { "nvim-telescope/telescope-dap.nvim" }
     use { "xiyaowong/telescope-emoji.nvim" }
+    use { "joaomsa/telescope-orgmode.nvim" }
 
 
 
@@ -251,6 +252,7 @@ return packer.startup(function(use)
             "antoinemadec/FixCursorHold.nvim"
         }
     }
+    use { 'nvim-orgmode/orgmode' }
 
     -------------------------------
     -- Eye candy Plugins

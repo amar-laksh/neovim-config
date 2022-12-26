@@ -20,7 +20,8 @@ telescope.setup({
 telescope.load_extension('file_browser')
 telescope.load_extension('hoogle') -- Haskell hackage docs
 telescope.load_extension('dap')
-require("telescope").load_extension("emoji")
+telescope.load_extension("emoji")
+telescope.load_extension('orgmode')
 
 -- local pickers = require "telescope.pickers"
 -- local previewers = require "telescope.previewers"
