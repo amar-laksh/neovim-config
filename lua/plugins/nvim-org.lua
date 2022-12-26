@@ -30,9 +30,9 @@ orgmode.setup {
     highlight = {
         enable = true,
     },
-    ensure_installed = { 'org' }, -- Or run :TSUpdate org
+    ensure_installed = { 'org' },
     org_agenda_files = { '~/Documents/org/*' },
-    org_default_notes_file = '~/Documents/org/Notes.org',
+    org_default_notes_file = '~/Documents/org/refile.org',
     mappings = {
         global = {
             org_timestamp_up = '+',
@@ -43,24 +43,37 @@ orgmode.setup {
     org_capture_templates = {
         t = {
             description = 'Todo task',
-            template = '* TODO %?\n  %u',
+            template = '* TODO %?\n  %u\n',
             target = '~/Documents/org/Todos.org'
+        },
+        n = {
+            description = 'Notes',
+            template = '* %?\n  %u\n',
+            target = '~/Documents/org/Notes.org'
         },
         r = {
             description = 'Reminder',
-            template = '* Reminder: %?\n  DEADLINE: %T',
+            template = '* Reminder: %?\n  DEADLINE: %T\n',
             target = '~/Documents/org/Reminders.org'
         },
         b = {
             description = 'Birthdays',
-            template = '* %?\n  <%<%Y-%m-%d %a +1y>>',
+            template = '* %?\n  <%<%Y-%m-%d %a +1y>>\n',
             target = '~/Documents/org/Birthdays.org'
         },
         e = {
             description = 'Events',
-            template = '* %?\n  %T',
+            template = '* %?\n  %T\n',
             target = '~/Documents/org/Calendar.org',
-            headline = 'one-time'
         },
+        j = {
+            description = 'Journal',
+            template = '** %t\n:PROPERTIES:\n' ..
+                ':runningTime: %^{running(mins)}\n' ..
+                'runningDistance: %^{running(kms)}\n' ..
+                ':sleep: %^{sleep(hours)}\n' ..
+                ':mood: %^{mood(1-10 scale)}\n:END:%?\n',
+            target = '~/Documents/org/Journal.org',
+        }
     }
 }

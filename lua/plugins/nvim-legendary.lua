@@ -90,12 +90,11 @@ legendary.setup({
             description = "Telescope: Yank ring history" },
         -- Org mode
         { "<space>oh", "<cmd>Telescope orgmode search_headings<cr>",
-            description = "Swap param: swap parameters" },
+            description = "Orgmode: search headings" },
+        { "<space>on", "<cmd>Telescope orgmode search_headings<cr>iNotes ",
+            description = "Orgmode: search notes" },
         { "<space>oH", "<cmd>Telescope orgmode refile_heading<cr>",
-            description = "Swap param: swap parameters" },
-
-
-
+            description = "Orgmode: refile heading" },
 
 
         -- DAP

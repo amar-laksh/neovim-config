@@ -12,14 +12,17 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-opt.mouse          = 'a' -- Enable mouse support
-opt.clipboard      = 'unnamedplus' -- Copy/paste to system clipboard
-opt.undofile       = true -- Support persistent undo
-opt.swapfile       = false -- Don't use swapfile
-opt.completeopt    = 'menuone,noinsert,noselect' -- Autocomplete options
-opt.spell          = true -- Enable spell check
-opt.spelllang      = 'en_gb' -- Set spell check language as British English
-opt.filetype.ident = true -- Enable filetype plugin
+opt.mouse             = 'a' -- Enable mouse support
+opt.clipboard         = 'unnamedplus' -- Copy/paste to system clipboard
+opt.undofile          = true -- Support persistent undo
+opt.swapfile          = false -- Don't use swapfile
+opt.completeopt       = 'menuone,noinsert,noselect' -- Autocomplete options
+opt.spell             = true -- Enable spell check
+opt.spelllang         = 'en_gb' -- Set spell check language as British English
+opt.filetype.ident    = true -- Enable filetype plugin
+vim.opt.conceallevel  = 2
+vim.opt.concealcursor = 'nc'
+
 
 
 -----------------------------------------------------------
@@ -67,10 +70,6 @@ local disabled_built_ins = {
     "getscriptPlugin",
     "gzip",
     "logipat",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
     "matchit",
     "tar",
     "tarPlugin",
@@ -91,3 +90,8 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
     g["loaded_" .. plugin] = 1
 end
+
+-----------------------------------------------------------
+-- Code Folding
+-----------------------------------------------------------
+vim.cmd([[autocmd FileType org setlocal nofoldenable]])

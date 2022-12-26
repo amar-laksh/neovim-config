@@ -279,6 +279,7 @@ return packer.startup(function(use)
         end,
     })
     use { 'nvim-orgmode/orgmode' }
+    use { 'dhruvasagar/vim-table-mode' }
 
     -------------------------------
     -- Eye candy Plugins
