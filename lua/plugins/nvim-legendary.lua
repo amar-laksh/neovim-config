@@ -91,11 +91,10 @@ legendary.setup({
         -- Org mode
         { "<space>oh", "<cmd>Telescope orgmode search_headings<cr>",
             description = "Orgmode: search headings" },
-        { "<space>on", "<cmd>Telescope orgmode search_headings<cr>iNotes ",
-            description = "Orgmode: search notes" },
         { "<space>oH", "<cmd>Telescope orgmode refile_heading<cr>",
             description = "Orgmode: refile heading" },
-
+        { "<space>jj", "<cmd>e ~/Documents/org/journal/Journal.org<cr>",
+            description = "Orgmode: jump to journal" },
 
         -- DAP
         { "<space>dd", "<cmd>lua require('dap').continue()<cr>",

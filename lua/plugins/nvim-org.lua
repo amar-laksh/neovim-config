@@ -36,15 +36,22 @@ orgmode.setup {
     mappings = {
         global = {
             org_timestamp_up = '+',
-            org_timestamp_down = '-'
+            org_timestamp_down = '-',
+            org_agenda = '<space>oa',
+            org_capture = '<space>oc'
         },
     },
-    org_deadline_warning_days = 3,
+    org_deadline_warning_days = 1,
     org_capture_templates = {
         t = {
             description = 'Todo task',
             template = '* TODO %?\n  %u\n',
-            target = '~/Documents/org/Todos.org'
+            target = '~/Documents/org/Todos.org',
+        },
+        d = {
+            description = 'Todo tasks with deadlines',
+            template = '* TODO %?\n  %u DEADLINE: %t\n',
+            target = '~/Documents/org/Deadlines.org',
         },
         n = {
             description = 'Notes',
