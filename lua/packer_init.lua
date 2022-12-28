@@ -281,8 +281,15 @@ return packer.startup(function(use)
     use { 'nvim-orgmode/orgmode' }
     use { 'dhruvasagar/vim-table-mode' }
     use { 'akinsho/org-bullets.nvim', config = function()
-        require('org-bullets').setup()
+        require('org-bullets').setup({})
     end }
+
+    use {
+        'lukas-reineke/headlines.nvim',
+        config = function()
+            require('headlines').setup({})
+        end,
+    }
 
     -------------------------------
     -- Eye candy Plugins
