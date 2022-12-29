@@ -127,155 +127,156 @@ for _, lsp in ipairs(servers) do
     }
 end
 
--- lspconfig.hls.setup {
---     cmd =
---     { "haskell-language-server-wrapper", "--lsp" }
---     ,
---     root_dir = root_dir,
---     on_attach = on_attach,
---     capabilities = capabilities,
---     settings = {
---         haskell = {
---             plugin = {
---                 eval = {
---                     config = {
---                         diff = true,
---                         exception = false
---                     },
---                     globalOn = true
---                 },
---                 hlint = {
---                     codeActionsOn = true,
---                     diagnosticOn = true
---                 },
---                 moduleName = {
---                     globalOn = true
---                 },
---                 pragmas = {
---                     codeActionsOn = true,
---                     completionOn = true
---                 },
---                 refineImports = {
---                     codeActionsOn = true,
---                     codeLensOn = true
---                 },
---                 importLens = {
---                     codeActionsOn = true,
---                     codeLensOn = true
---                 },
---                 rename = {
---                     config = {
---                         diff = true,
---                         crossModule = true
---                     },
---                     globalOn = true
---                 },
---                 tactics = {
---                     codeActionsOn = true,
---                     completionOn = true,
---                     hoverOn = true
---                 },
---             }
---         }
---     }
--- }
-local ht = require('haskell-tools')
-local def_opts = { noremap = true, silent = true, }
-ht.setup {
-    hls = {
-        -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
-        on_attach = function(client, bufnr)
-            local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr, })
-            -- haskell-language-server relies heavily on codeLenses,
-            -- so auto-refresh (see advanced configuration) is enabled by default
-            vim.keymap.set('n', '<space>ca', vim.lsp.codelens.run, opts)
-            vim.keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
-            -- default_on_attach(client, bufnr)  -- if defined, see nvim-lspconfig
-        end,
-        settings = {
-            haskell = {
-                formattingProvider = 'ormolu',
-                plugin = {
-                    alternateNumberFormat = { globalOn = true },
-                    callHierarchy = { globalOn = true },
-                    changeTypeSignature = { globalOn = true },
-                    class = {
-                        codeActionsOn = true,
-                        codeLensOn = true,
+lspconfig.hls.setup {
+    cmd =
+    { "haskell-language-server-wrapper", "--lsp" }
+    ,
+    root_dir = root_dir,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        haskell = {
+            plugin = {
+                eval = {
+                    config = {
+                        diff = true,
+                        exception = false
                     },
-                    eval = {
-                        globalOn = true,
-                        config = {
-                            diff = true,
-                            exception = true,
-                        },
+                    globalOn = true
+                },
+                hlint = {
+                    codeActionsOn = true,
+                    diagnosticOn = true
+                },
+                moduleName = {
+                    globalOn = true
+                },
+                pragmas = {
+                    codeActionsOn = true,
+                    completionOn = true
+                },
+                refineImports = {
+                    codeActionsOn = true,
+                    codeLensOn = true
+                },
+                importLens = {
+                    codeActionsOn = true,
+                    codeLensOn = true
+                },
+                rename = {
+                    config = {
+                        diff = true,
+                        crossModule = true
                     },
-                    excplicitFixity = { globalOn = true },
-                    gadt = { globalOn = true },
-                    ['ghcide-code-actions-bindings'] = { globalOn = true },
-                    ['ghcide-code-actions-fill-holes'] = { globalOn = true },
-                    ['ghcide-code-actions-imports-exports'] = { globalOn = true },
-                    ['ghcide-code-actions-type-signatures'] = { globalOn = true },
-                    ['ghcide-completions'] = {
-                        globalOn = true,
-                        config = {
-                            autoExtendOn = true,
-                            snippetsOn = true,
-                        },
-                    },
-                    ['ghcide-hover-and-symbols'] = {
-                        hoverOn = true,
-                        symbolsOn = true,
-                    },
-                    ['ghcide-type-lenses'] = {
-                        globalOn = true,
-                        config = {
-                            mode = 'always',
-                        },
-                    },
-                    haddockComments = { globalOn = true },
-                    hlint = {
-                        codeActionsOn = true,
-                        diagnosticsOn = true,
-                    },
-                    importLens = {
-                        globalOn = true,
-                        codeActionsOn = true,
-                        codeLensOn = true,
-                    },
-                    moduleName = { globalOn = true },
-                    pragmas = {
-                        codeActionsOn = true,
-                        completionOn = true,
-                    },
-                    qualifyImportedNames = { globalOn = true },
-                    refineImports = {
-                        codeActionsOn = true,
-                        codeLensOn = true,
-                    },
-                    rename = {
-                        globalOn = true,
-                        config = { crossModule = true },
-                    },
-                    retrie = { globalOn = true },
-                    splice = { globalOn = true },
-                    tactics = {
-                        codeActionsOn = true,
-                        codeLensOn = true,
-                        config = {
-                            auto_gas = 4,
-                            hole_severity = nil,
-                            max_use_ctor_actions = 5,
-                            proofstate_styling = true,
-                            timeout_duration = 2,
-                        },
-                        hoverOn = true,
-                    },
-                }
+                    globalOn = true
+                },
+                tactics = {
+                    codeActionsOn = true,
+                    completionOn = true,
+                    hoverOn = true
+                },
             }
         }
-    },
+    }
 }
+
+-- local ht = require('haskell-tools')
+-- local def_opts = { noremap = true, silent = true, }
+-- ht.setup {
+--     hls = {
+--         -- See nvim-lspconfig's  suggested configuration for keymaps, etc.
+--         on_attach = function(client, bufnr)
+--             local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr, })
+--             -- haskell-language-server relies heavily on codeLenses,
+--             -- so auto-refresh (see advanced configuration) is enabled by default
+--             vim.keymap.set('n', '<space>ca', vim.lsp.codelens.run, opts)
+--             vim.keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
+--             -- default_on_attach(client, bufnr)  -- if defined, see nvim-lspconfig
+--         end,
+--         settings = {
+--             haskell = {
+--                 formattingProvider = 'ormolu',
+--                 plugin = {
+--                     alternateNumberFormat = { globalOn = true },
+--                     callHierarchy = { globalOn = true },
+--                     changeTypeSignature = { globalOn = true },
+--                     class = {
+--                         codeActionsOn = true,
+--                         codeLensOn = true,
+--                     },
+--                     eval = {
+--                         globalOn = true,
+--                         config = {
+--                             diff = true,
+--                             exception = true,
+--                         },
+--                     },
+--                     excplicitFixity = { globalOn = true },
+--                     gadt = { globalOn = true },
+--                     ['ghcide-code-actions-bindings'] = { globalOn = true },
+--                     ['ghcide-code-actions-fill-holes'] = { globalOn = true },
+--                     ['ghcide-code-actions-imports-exports'] = { globalOn = true },
+--                     ['ghcide-code-actions-type-signatures'] = { globalOn = true },
+--                     ['ghcide-completions'] = {
+--                         globalOn = true,
+--                         config = {
+--                             autoExtendOn = true,
+--                             snippetsOn = true,
+--                         },
+--                     },
+--                     ['ghcide-hover-and-symbols'] = {
+--                         hoverOn = true,
+--                         symbolsOn = true,
+--                     },
+--                     ['ghcide-type-lenses'] = {
+--                         globalOn = true,
+--                         config = {
+--                             mode = 'always',
+--                         },
+--                     },
+--                     haddockComments = { globalOn = true },
+--                     hlint = {
+--                         codeActionsOn = true,
+--                         diagnosticsOn = true,
+--                     },
+--                     importLens = {
+--                         globalOn = true,
+--                         codeActionsOn = true,
+--                         codeLensOn = true,
+--                     },
+--                     moduleName = { globalOn = true },
+--                     pragmas = {
+--                         codeActionsOn = true,
+--                         completionOn = true,
+--                     },
+--                     qualifyImportedNames = { globalOn = true },
+--                     refineImports = {
+--                         codeActionsOn = true,
+--                         codeLensOn = true,
+--                     },
+--                     rename = {
+--                         globalOn = true,
+--                         config = { crossModule = true },
+--                     },
+--                     retrie = { globalOn = true },
+--                     splice = { globalOn = true },
+--                     tactics = {
+--                         codeActionsOn = true,
+--                         codeLensOn = true,
+--                         config = {
+--                             auto_gas = 4,
+--                             hole_severity = nil,
+--                             max_use_ctor_actions = 5,
+--                             proofstate_styling = true,
+--                             timeout_duration = 2,
+--                         },
+--                         hoverOn = true,
+--                     },
+--                 }
+--             }
+--         }
+--     },
+-- }
 
 
 lspconfig.bashls.setup {
