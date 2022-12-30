@@ -159,7 +159,6 @@ legendary.setup({
             description = "NeoTest: goto previous test" },
 
 
-
         -- Transparency
         { "<space>gt", ":lua local bck = vim.o.background; vim.cmd[[TransparentToggle]]; vim.o.background = bck<CR>",
             description = "Transparency: toggle" },
@@ -201,6 +200,8 @@ legendary.setup({
         { "<space>ss", "<cmd>:ISwap<cr>",
             description = "Swap param: swap parameters" },
 
+        -- Neogen
+        { '<space>ga', "<cmd>:lua require('neogen').generate()<CR>", description = "Hopper: generate annotation" },
 
 
         -- -- Plugin dev
