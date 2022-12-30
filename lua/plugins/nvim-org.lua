@@ -81,6 +81,12 @@ orgmode.setup {
                 ':sleep: %^{sleep(hours)}\n' ..
                 ':mood: %^{mood(1-10 scale)}\n:END:%?\n',
             target = '~/Documents/org/journal/Journal.org',
-        }
+        },
+        w = {
+            description = 'Writing',
+            template = '%?\n  %t\n',
+            target = '~/Documents/org/journal/Writing.org',
+        },
+
     }
 }
