@@ -11,7 +11,12 @@ orgmode.setup_ts_grammar()
 orgmode.setup {
     notifications = {
         enabled = true,
+        cron_enabled = true,
+        repeater_reminder_time = true,
+        deadline_warning_reminder_time = true,
         reminder_time = { 1, 5, 60 },
+        deadline_reminder = true,
+        scheduled_reminder = true,
         notifier = function(tasks)
             local result = {}
             for _, task in ipairs(tasks) do
@@ -26,6 +31,25 @@ orgmode.setup {
                 orgmode_popups:new({ content = result })
             end
         end,
+        cron_notifier = function(tasks)
+            print("hello world")
+            for _, task in ipairs(tasks) do
+                local title = string.format('%s (%s)', task.category, task.humanized_duration)
+                local subtitle = string.format('%s %s %s', string.rep('*', task.level), task.todo, task.title)
+                local date = string.format('%s: %s', task.type, task.time:to_string())
+
+                -- Linux
+                if vim.fn.executable('notify-desktop') == 1 then
+                    vim.loop.spawn('notify-desktop', { args = { string.format('%s\n%s\n%s', title, subtitle, date) } })
+                end
+
+                -- MacOS
+                if vim.fn.executable('terminal-notifier') == 1 then
+                    vim.loop.spawn('terminal-notifier',
+                        { args = { '-title', title, '-subtitle', subtitle, '-message', date } })
+                end
+            end
+        end
     },
     highlight = {
         enable = true,
