@@ -92,14 +92,6 @@ Language servers setup:
 For language servers list see:
 https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-Language server installed:
-
-Bash          -> bashls
-Python        -> pyright
-C-C++         -> clangd
-HTML/CSS/JSON -> vscode-html-languageserver
-JavaScript/TypeScript -> tsserver
-
 --]]
 
 -- Define `root_dir` when needed
@@ -126,6 +118,21 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
+
+
+lspconfig.nil_ls.setup {
+    autostart = true,
+    capabilities = capabilities,
+    cmd = { "nil" },
+    settings = {
+        ['nil'] = {
+            testSetting = 42,
+            formatting = {
+                command = { "nixpkgs-fmt" },
+            },
+        }
+    }
+}
 
 lspconfig.hls.setup {
     cmd =
