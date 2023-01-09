@@ -7,6 +7,8 @@ local orgmode_popups = require('orgmode.notifications.notification_popup')
 
 orgmode.setup_ts_grammar()
 
+vim.cmd [[autocmd BufWritePost *.org !emacs -nw --batch --load ~/.emacs.d/init.el --visit=~/Documents/org/Deadlines.org --funcall=org-icalendar-export-to-ics]]
+
 -- Treesitter configuration
 orgmode.setup {
     notifications = {
@@ -111,6 +113,5 @@ orgmode.setup {
             template = '%?\n  %t\n',
             target = '~/Documents/org/journal/Writing.org',
         },
-
     }
 }
