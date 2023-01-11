@@ -237,6 +237,14 @@ return packer.startup(function(use)
     -- Provides support for C/C++
     use "m-pilia/vim-ccls"
 
+    -- Floating preview windows for definition and other lookups
+    use {
+        'rmagatti/goto-preview',
+        config = function()
+            require('goto-preview').setup {}
+        end
+    }
+
     -- provides helpful keybinding legend
     use { "mrjones2014/legendary.nvim", requires = { "folke/which-key.nvim" } }
 
